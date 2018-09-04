@@ -1,0 +1,26 @@
+.button {
+  padding: 4px;
+  border: 2px solid grey;
+  color: white;
+  background: grey;
+  border-radius: 4px;
+  transition: .5s;
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}
+
+a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}

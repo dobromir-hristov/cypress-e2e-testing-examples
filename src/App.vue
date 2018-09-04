@@ -1,8 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app" class="text-blue-darker container mx-auto">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{ name: 'home' }">Home</router-link>
+      |
+      <router-link :to="{ name: 'articleList' }">Articles</router-link>
+      |
+      <router-link :to="{ name: 'addArticle' }">Add Article</router-link>
     </div>
     <router-view/>
   </div>
@@ -14,13 +17,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
+
 #nav {
   padding: 30px;
   a {
     font-weight: bold;
-    color: #2c3e50;
     &.router-link-exact-active {
       color: #42b983;
     }
