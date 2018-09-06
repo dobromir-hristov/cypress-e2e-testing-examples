@@ -6,8 +6,9 @@ import axios from 'axios'
 import Vuelidate from 'vuelidate'
 import VuelidateErrorExtractor, { templates } from 'vuelidate-error-extractor'
 import FormGroup from '@/components/FormGroup'
-import VueSweetalert2 from 'vue-sweetalert2'
+import swal from 'sweetalert2'
 
+import 'sweetalert2/dist/sweetalert2.min.css'
 import '@/assets/styles/app.scss'
 
 axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL
@@ -15,10 +16,11 @@ axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL
 Vue.config.productionTip = false
 
 Vue.prototype.$api = axios
+
 Vue.prototype.$notify = {
-  error: (e) => Vue.prototype.$swal({ type: 'error', text: (e.response && e.response.data) || e.message || e }),
-  success: (e) => Vue.prototype.$swal({ type: 'success', text: e }),
-  confirm: (e) => Vue.prototype.$swal({ type: 'info', showCancelButton: true, text: e })
+  error: (e) => swal({ type: 'error', text: (e.response && e.response.data) || e.message || e }),
+  success: (e) => swal({ type: 'success', text: e }),
+  confirm: (e) => swal({ type: 'info', showCancelButton: true, text: e })
 }
 
 Vue.use(Vuelidate)
@@ -35,7 +37,6 @@ Vue.use(VuelidateErrorExtractor, {
     body: 'Article body'
   }
 })
-Vue.use(VueSweetalert2)
 
 Vue.component('FormWrapper', templates.FormWrapper)
 Vue.component('FormGroup', FormGroup)

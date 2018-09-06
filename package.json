@@ -7,13 +7,15 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "run-api": "json-server --watch db.json"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "json-server": "^0.14.0",
+    "sweetalert2": "^7.26.23",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
-    "vue-sweetalert2": "^1.5.3",
     "vuelidate": "^0.7.4",
     "vuelidate-error-extractor": "^2.2.2",
     "vuex": "^3.0.1"
