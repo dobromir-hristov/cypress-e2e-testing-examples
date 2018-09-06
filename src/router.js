@@ -22,12 +22,12 @@ export default new Router({
       component: load('RegisterArticle')
     },
     {
-      path: '/article-list',
+      path: '/articles',
       name: 'articleList',
       component: load('Articles')
     },
     {
-      path: '/article/:id',
+      path: '/articles/:id',
       name: 'article',
       props: true,
       component: load('Article')

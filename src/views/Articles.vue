@@ -1,10 +1,10 @@
 <template>
   <div class="Articles">
     <h2>Articles</h2>
-    <div class="ArticlesContainer my-8">
+    <div class="Articles__container my-8 w-2/3 mx-auto">
       <load-more
-          :limit="1"
-          url="posts"
+          :limit="2"
+          url="articles"
       >
         <items-list
             :items="items"

@@ -49,12 +49,14 @@
             <textarea
                 cols="30"
                 rows="10"
-                v-model="form.body"
+                v-on="events"
+                v-bind="attrs"
+                slot-scope="{ attrs, events }"
             />
           </form-group>
         </div>
         <div class="text-right">
-          <button class="button" type="submit">
+          <button data-testid="submit" class="button" type="submit">
             Save article
           </button>
         </div>
@@ -91,22 +93,27 @@ export default {
       title: { required },
       author: { required },
       image: { url },
-      rating: { numeric }
+      rating: { numeric },
+      body: {}
     }
   },
   methods: {
     submit () {
       this.$v.form.$touch()
       if (this.$v.form.$error) return
-      this.$api.post('posts', this.form).then((response) => {
-        const data = response.data
-        this.$notify.confirm(`${data.title} saved successfully. Do you want to check it out?`)
-          .then((yes) => {
-            if (yes.value) this.$router.push({ name: 'article', params: { id: data.id } })
-          })
-        this.form = articleForm()
-        this.$v.form.$reset()
-      })
+      this.$api.post('articles', this.form)
+        .then((response) => {
+          const data = response.data
+          this.$notify.confirm(`${data.title} saved successfully. Do you want to check it out?`)
+            .then((yes) => {
+              if (yes.value) this.$router.push({ name: 'article', params: { id: data.id } })
+            })
+          this.form = articleForm()
+          this.$v.form.$reset()
+        })
+        .catch((e) => {
+          this.$notify.error(e)
+        })
     }
   }
 }

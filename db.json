@@ -1,116 +1,180 @@
 {
-  "posts": [
+  "articles": [
     {
       "id": 1,
       "title": "VueMastery",
       "author": "Gregg Pollack",
       "rating": 5,
-      "image": "https://www.vuemastery.com/images/facbeook_image.png"
+      "image": "https://www.vuemastery.com/images/facbeook_image.png",
+      "body": "As the ultimate resource for Vue.js developers, Vue Mastery produces weekly lessons so you can learn what you need to succeed as a Vue.js Developer."
     },
     {
       "id": 2,
       "title": "Testing Vue Apps",
       "author": "Edd Yerburgh",
       "rating": 5,
-      "image": "https://cdn-images-1.medium.com/max/1200/0*OGJKk3KjSCitumeD."
+      "image": "https://cdn-images-1.medium.com/max/1200/0*OGJKk3KjSCitumeD.",
+      "body": "Vue is a powerful web framework that changes the way you build web UI. To test applications built with Vue, you need to master a new set of tools and techniques designed to work with Vue's unique reactive design and the flexible collection of components that make up the Vue stack. Mastering Vue testing not only improves the quality of your apps, it guarantees that you understand how your apps work top-to-bottom and end to end."
     },
     {
       "id": 3,
       "title": "Majesty of Vue",
       "author": "Alex Kyriakidis",
       "rating": 4,
-      "image": "https://s3.amazonaws.com/titlepages.leanpub.com/vuejs2/hero?1535110675"
+      "image": "https://s3.amazonaws.com/titlepages.leanpub.com/vuejs2/hero?1535110675",
+      "body": "This book is addressed to anyone interested in learning Vue.js. It is useful for developers who are new to Vue.js as well as those who already use Vue.js and want to expand their knowledge. It is also helpful for developers who are looking to migrate to Vue.js 2."
     },
     {
       "id": 4,
       "title": "VueSchool",
       "author": "Alex Kyriakidis",
       "rating": 4,
-      "image": "https://s3.amazonaws.com/revue/items/images/001/787/052/original/Screenshot_2017-03-01_20.15.14.png?1488400265"
-    },
-    {
-      "title": "dasd",
-      "author": "aaasdasd",
-      "image": "",
-      "rating": 0,
-      "id": 5
-    },
-    {
-      "title": "aasd",
-      "author": "dasd",
-      "image": "",
-      "rating": 0,
-      "id": 6
-    },
-    {
-      "title": "asd",
-      "author": "asd",
-      "image": "",
-      "rating": 0,
-      "id": 7
-    },
-    {
-      "title": "aaasd",
-      "author": "asdasda",
-      "image": "",
-      "rating": "5",
-      "id": 8
+      "image": "https://s3.amazonaws.com/revue/items/images/001/787/052/original/Screenshot_2017-03-01_20.15.14.png?1488400265",
+      "body": "Learn Vue.js and modern, cutting-edge front-end technologies from the industry experts with our premium tutorials and vue.js courses. Join our community today. It's free! "
     },
     {
       "title": "Fullstack Vue",
       "author": "Dhrdeh",
       "image": "https://www.fullstack.io/assets/images/fullstack-react-native-book-cover-hardcover-003-copy.png",
       "rating": "4",
-      "body": "",
-      "id": 9
+      "body": "Fullstack Vue is a tutorial-driven book that will have you writing Vue apps in no time.",
+      "id": 5
     },
     {
-      "title": "d asd",
-      "author": "asda",
+      "title": "Laracasts",
+      "author": "Jeffrеy Way",
+      "image": "https://madewithvuejs.com/uploads/14/07/sRy3sWY2PYNchjfwqF2Y.png",
+      "rating": "4",
+      "body": " It's Kinda Like Netflix for Your Career! Learn practical, modern web development, through expert screencasts. Most video tutorials are boring. These aren't. Ready to binge? ",
+      "id": 6
+    },
+    {
+      "title": "Advanced Vue Component Design",
+      "author": "Adam Wathan",
+      "image": "https://res.cloudinary.com/dchiba2d6/image/upload/v1525818714/advanced-vue/advanced-vue-learn-card_2x.png",
+      "rating": "5",
+      "body": "Learn how to design simpler, more flexible components that are both more powerful and easier to maintain.",
+      "id": 7
+    },
+    {
+      "title": "Test",
+      "author": "Test Author",
       "image": "",
       "rating": 0,
       "body": "",
       "id": 10
     },
     {
-      "title": "dasd",
-      "author": "asdasd",
+      "title": "Test 2",
+      "author": "Test Author 2",
       "image": "",
       "rating": 0,
-      "body": "dasdad",
+      "body": "LOREM IPSUM",
       "id": 11
     },
     {
-      "title": "dasd",
-      "author": "asd",
+      "title": "Test 3",
+      "author": "Test Author 3",
       "image": "",
       "rating": 0,
-      "body": "",
+      "body": "LOREM IPSUM",
       "id": 12
     },
     {
-      "title": "aaaaaaa",
-      "author": "ssssssss",
+      "title": "Test 4",
+      "author": "Test Author 4",
       "image": "",
       "rating": 0,
-      "body": "",
+      "body": "LOREM IPSUM",
       "id": 13
     },
     {
-      "title": "asdas",
-      "author": "dasdasd",
+      "title": "Test 5",
+      "author": "Test Author 5",
       "image": "",
       "rating": 0,
-      "body": "",
+      "body": "LOREM IPSUM",
       "id": 14
     },
     {
-      "title": "da sd",
-      "author": "a sda sd asd ",
+      "title": "Test 6",
+      "author": "Test Author 6",
       "image": "",
       "rating": 0,
-      "body": "",
+      "body": "LOREM IPSUM",
       "id": 15
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 16
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 17
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 18
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 19
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 20
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 21
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 22
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 23
+    },
+    {
+      "title": "Vue enterprise boilerplate",
+      "author": "Chris Fritz",
+      "image": "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+      "rating": 0,
+      "body": "Lorem Ipsum .... whatever",
+      "id": 24
     }
   ],
   "comments": [

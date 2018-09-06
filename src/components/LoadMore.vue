@@ -11,8 +11,9 @@
       <div class="first mx-4">
         <button
             class="button"
+            data-testid="pageFirst"
             @click="fetch(first)"
-            :disabled="!first"
+            :disabled="currentPage === 1"
         >
           First page
         </button>
@@ -21,6 +22,7 @@
       <div class="prev mx-4">
         <button
             class="button"
+            data-testid="pagePrev"
             @click="fetch(prev)"
             :disabled="!prev"
         >
@@ -28,11 +30,12 @@
         </button>
       </div>
       <div class="font-bold text-grey-darker">
-        {{ currentPage }} / {{ totalItems }}
+        <span data-testid="paginationCurrentPage">{{ currentPage }}</span> / {{ totalPages }}
       </div>
       <div class="next mx-4">
         <button
             class="button"
+            data-testid="pageNext"
             @click="fetch(next)"
             :disabled="!next"
         >
@@ -40,10 +43,12 @@
         </button>
       </div>
 
-      <div class="last mx-4" v-if="last">
+      <div class="last mx-4">
         <button
             class='button'
-            @click="fetch(last)"
+            data-testid="pageLast"
+            :disabled="currentPage === totalPages"
+            @click="fetch(totalPages)"
         >
           Last page
         </button>
@@ -84,11 +89,11 @@ export default {
     first () {
       return 1
     },
-    last () {
+    totalPages () {
       return Math.ceil(this.totalItems / this.limit)
     },
     next () {
-      return (this.currentPage < this.totalItems) ? this.currentPage + 1 : false
+      return (this.currentPage < this.totalPages) ? this.currentPage + 1 : false
     },
     prev () {
       return (this.currentPage > 1) ? this.currentPage - 1 : false
@@ -110,7 +115,7 @@ export default {
       })
         .then((response) => {
           this.items = response.data
-          this.totalItems = response.headers['x-total-count']
+          this.totalItems = response.headers['x-total-count'] || 1
           this.currentPage = page
         })
         .catch((error) => {

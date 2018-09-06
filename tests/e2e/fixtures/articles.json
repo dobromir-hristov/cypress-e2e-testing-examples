@@ -1,0 +1,18 @@
+[
+  {
+    "id": 998,
+    "author": "Dobromir Hristov",
+    "title": "e2e testing with Cypress.io",
+    "rating": "5",
+    "image": "",
+    "body": ""
+  },
+  {
+    "id": 999,
+    "author": "Georgi Hristov",
+    "title": "Houdini for beginners",
+    "rating": "5",
+    "image": "",
+    "body": ""
+  }
+]

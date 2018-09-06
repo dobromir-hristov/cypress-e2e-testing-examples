@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.$api = axios
 Vue.prototype.$notify = {
-  errore: (e) => Vue.prototype.$swal({ type: 'error', text: e.message || e }),
+  error: (e) => Vue.prototype.$swal({ type: 'error', text: (e.response && e.response.data) || e.message || e }),
   success: (e) => Vue.prototype.$swal({ type: 'success', text: e }),
   confirm: (e) => Vue.prototype.$swal({ type: 'info', showCancelButton: true, text: e })
 }
@@ -40,8 +40,12 @@ Vue.use(VueSweetalert2)
 Vue.component('FormWrapper', templates.FormWrapper)
 Vue.component('FormGroup', FormGroup)
 
-new Vue({
+const app = new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+
+if (window.Cypress) {
+  window.$app = app
+}
