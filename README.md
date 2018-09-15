@@ -11,7 +11,7 @@ Install the deps
 
 You need to start the API in a separate command prompt.
 
-`npm run server` 
+`npm run api` 
  
 Then you are ready to run the app or run tests.
 

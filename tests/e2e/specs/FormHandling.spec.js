@@ -1,6 +1,8 @@
+/// <reference types="cypress" />
 describe('Shows how to test a basic form', () => {
   it('fills in the form', () => {
     cy.server()
+    // Stub the POST request to /articles and return a 403
     cy.route({
       method: 'POST',
       url: 'articles*',
@@ -8,9 +10,13 @@ describe('Shows how to test a basic form', () => {
       response: 'Invalid Cover image'
     })
 
+    // visit the page
     cy.visit('/add-article')
+
+    // submit without any data
     cy.getByTestId('submit').click()
 
+    // check if fields have errors and type into them
     cy.getByTestId('title').isInvalid('Title is required')
       .type('Vue enterprise boilerplate')
 

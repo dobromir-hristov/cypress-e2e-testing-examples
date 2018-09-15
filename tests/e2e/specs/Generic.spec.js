@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('Generic Cypress assertions', () => {
   /**
    * Here we show simple assertions against the dom

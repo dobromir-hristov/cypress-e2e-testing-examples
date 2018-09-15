@@ -1,9 +1,11 @@
+/// <reference types="cypress" />
 const clickNext = () => cy.getByTestId('pageNext').click()
 const clickPrev = () => cy.getByTestId('pagePrev').click()
 
 const onPage = (number) => cy.getByTestId('paginationCurrentPage').should('contain', number)
 
 describe('Showcases more advanced examples', () => {
+  // BeforeEach is called before each context or it
   beforeEach(() => {
     cy.server()
     cy.route('articles*').as('fetchArticles')
@@ -12,8 +14,8 @@ describe('Showcases more advanced examples', () => {
     it('loads a list of articles', () => {
       // load page
       cy.visit('/articles')
-      // TODO: disable
-      cy.wait('@fetchArticles').its('responseBody').as('articlesResponse')
+      // TODO: enable
+      cy.wait('@fetchArticles').its('responseBody').as('articlesResponse') // <========= 1. enable this after showing it fails
       // check article is there
       cy.get('.ArticleList')
         .children()
@@ -24,7 +26,7 @@ describe('Showcases more advanced examples', () => {
       // This does not work as it gets the data from the first response.
       // We need to await the first one
       // alias the response of the fetchArticles for later
-      cy.wait('@fetchArticles').its('responseBody').as('articlesResponse')
+      cy.wait('@fetchArticles').its('responseBody').as('articlesResponse') // <=========== 2. awaits the first request, not the second
 
       onPage(2)
 
@@ -44,7 +46,6 @@ describe('Showcases more advanced examples', () => {
         cy.getByTestId('articleListItemImage').first()
           .should('have.attr', 'src', response[0].image)
       })
-      // assert
       // stub
       cy.route({
         method: 'GET',
@@ -59,7 +60,7 @@ describe('Showcases more advanced examples', () => {
       cy.wait('@fetchArticles')
       cy.getByTestId('articleListItemAuthor').should('contain', 'John Doe')
       // unstub
-      cy.route('articles*').as('fetchArticles')
+      cy.route('articles*').as('fetchArticles') // <====== unstubs the stubbed request
       // await
       clickNext()
       /* Showcase Nesting to share data */
@@ -95,17 +96,19 @@ describe('Showcases more advanced examples', () => {
       // Spy on article route
       let firstItem = {}
       cy.request({
+        // we can use the ENV from plugins/index.js
         url: Cypress.env('API_BASE_URL') + '/articles'
       }).then((response) => {
         firstItem = response.body[0]
         return firstItem
       }).as('fetchArticles')
       // This does not work
-      // cy.visit('/articles/' + firstItem.id)
+      // cy.visit('/articles/' + firstItem.id) // <================== Does not work like that
 
       /**
        * This however works. We await for that request and when done, we use the stored data.
-       * We can also return the data and use it in the then callback
+       * We can also return the data and use it in the then callback.
+       * We can use cy.get with response aliases
        */
       cy.get('@fetchArticles').then((response) => {
         cy.log(response) // should be first item
