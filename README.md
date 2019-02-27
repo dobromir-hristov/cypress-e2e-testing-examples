@@ -34,12 +34,12 @@ Each can run their own webpack dev server or use the one that is already started
 #### Headless mode
 `npm run test:e2e -- --headless` - this starts e2e tests and runs its own dev server
 
-`npm run tests:e2e -- --headless --url http://locahost:8080` - this runs e2e tests on the provided url
+`npm run test:e2e -- --headless --url http://locahost:8080` - this runs e2e tests on the provided url
 
 #### GUI Mode
 `npm run test:e2e` - opens the Cypress GUI and runs its own dev server
 
-`npm run tests:e2e -- --url http://locahost:8080` - opens the Cypress GUI pointing to the provided url
+`npm run test:e2e -- --url http://locahost:8080` - opens the Cypress GUI pointing to the provided url
 
 
 **Author:** Dobromir Hristov
