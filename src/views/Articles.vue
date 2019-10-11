@@ -3,12 +3,13 @@
     <h2>Articles</h2>
     <div class="Articles__container my-8 w-2/3 mx-auto">
       <load-more
-          :limit="2"
-          url="articles"
+        :limit="2"
+        url="articles"
+        is-route-synced
       >
         <items-list
-            :items="items"
-            slot-scope="{ items }"
+          :items="items"
+          slot-scope="{ items }"
         />
       </load-more>
     </div>

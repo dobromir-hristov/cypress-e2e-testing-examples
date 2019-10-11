@@ -1,19 +1,19 @@
 <template>
-  <div class="LoadMore" :class="{isLoading}">
+  <div class="LoadMore" :class="{ isLoading }">
     <div class="content">
       <slot
-          :items="items"
-          :is-loading="isLoading"
+        :items="items"
+        :is-loading="isLoading"
       />
     </div>
 
     <div class="pagination flex justify-center mt-4 items-center">
       <div class="first mx-4">
         <button
-            class="button"
-            data-testid="pageFirst"
-            @click="fetch(first)"
-            :disabled="currentPage === 1"
+          class="button"
+          data-testid="pageFirst"
+          @click="fetch(first)"
+          :disabled="currentPage === 1"
         >
           First page
         </button>
@@ -21,10 +21,10 @@
 
       <div class="prev mx-4">
         <button
-            class="button"
-            data-testid="pagePrev"
-            @click="fetch(prev)"
-            :disabled="!prev"
+          class="button"
+          data-testid="pagePrev"
+          @click="fetch(prev)"
+          :disabled="!prev"
         >
           Prev
         </button>
@@ -34,10 +34,10 @@
       </div>
       <div class="next mx-4">
         <button
-            class="button"
-            data-testid="pageNext"
-            @click="fetch(next)"
-            :disabled="!next"
+          class="button"
+          data-testid="pageNext"
+          @click="fetch(next)"
+          :disabled="!next"
         >
           Next
         </button>
@@ -45,10 +45,10 @@
 
       <div class="last mx-4">
         <button
-            class='button'
-            data-testid="pageLast"
-            :disabled="currentPage === totalPages"
-            @click="fetch(totalPages)"
+          class='button'
+          data-testid="pageLast"
+          :disabled="currentPage === totalPages"
+          @click="fetch(totalPages)"
         >
           Last page
         </button>
@@ -73,6 +73,10 @@ export default {
     limit: {
       type: Number,
       default: 10
+    },
+    isRouteSynced: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -101,10 +105,21 @@ export default {
   },
 
   mounted () {
+    if (this.isRouteSynced && this.$route.query.page) {
+      this.currentPage = parseInt(this.$route.query.page)
+    }
     this.fetch()
   },
 
   methods: {
+    syncRoute () {
+      this.$router.push({
+        ...this.$route,
+        query: {
+          page: this.currentPage
+        }
+      })
+    },
     fetch (page = this.currentPage) {
       this.isLoading = true
       return this.$api.get(this.url, {
@@ -117,6 +132,9 @@ export default {
           this.items = response.data
           this.totalItems = response.headers['x-total-count'] || 1
           this.currentPage = page
+          if (this.isRouteSynced) {
+            this.syncRoute()
+          }
         })
         .catch((error) => {
           this.$notify.error(error)
