@@ -6,8 +6,10 @@
       <router-link :to="{ name: 'articleList' }">Articles</router-link>
       |
       <router-link :to="{ name: 'addArticle' }">Add Article</router-link>
+      |
+      <article-search class="inline-block" />
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -21,11 +23,20 @@
 
 #nav {
   padding: 30px;
+
   a {
     font-weight: bold;
+
     &.router-link-exact-active {
       color: #42b983;
     }
   }
 }
 </style>
+<script>
+import ArticleSearch from './components/ArticleSearch'
+
+export default {
+  components: { ArticleSearch }
+}
+</script>

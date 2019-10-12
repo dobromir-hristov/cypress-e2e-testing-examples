@@ -111,11 +111,24 @@ export default {
     this.fetch()
   },
 
+  watch: {
+    url () {
+      this.reset()
+      this.fetch()
+    }
+  },
+
   methods: {
+    reset () {
+      this.items = []
+      this.totalItems = 0
+      this.currentPage = 1
+    },
     syncRoute () {
       this.$router.push({
         ...this.$route,
         query: {
+          ...this.$route.query,
           page: this.currentPage
         }
       })
