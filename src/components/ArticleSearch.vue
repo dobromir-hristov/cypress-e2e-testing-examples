@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="search" class="ArticleSearch">
-    <input type="text" v-model="query" placeholder="Find Articles">
+    <input type="text" v-model="query" placeholder="Find Articles" data-testid="articleSearchInput">
     <button type="submit" class="hidden">Search</button>
   </form>
 </template>

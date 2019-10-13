@@ -1,6 +1,6 @@
 <template>
   <div class="ArticleListItem mb-8 border-b border-grey pb-4">
-    <router-link :to="{ name: 'article', params: { id: item.id } }">
+    <router-link :to="{ name: 'article', params: { id: item.id } }" class="block">
       <div class="mb-4 sh" v-if="item.image">
         <img data-testid="articleListItemImage" :src="item.image" class="h-64 shadow" alt="">
       </div>

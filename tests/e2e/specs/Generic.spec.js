@@ -34,10 +34,5 @@ describe('Generic Cypress assertions', () => {
     /* Check if we are on the right URL */
     cy.url()
       .should('contain', '/articles')
-
-    cy.get('#nav > a')
-      .filter('.router-link-exact-active')
-      .should('have.attr', 'href', '/articles')
-      .log('Log random debug data') // cannot be chained as it augments the chain
   })
 })

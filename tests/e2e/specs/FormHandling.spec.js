@@ -30,8 +30,8 @@ describe('Shows how to test a basic form', () => {
       .type('https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg')
 
     cy.getByTestId('rating')
-      .invoke('val', 25)
-      .trigger('change')
+      .invoke('val', '3')
+      .trigger('input')
 
     cy.getByTestId('body')
       .type('Lorem Ipsum .... whatever')
@@ -50,6 +50,8 @@ describe('Shows how to test a basic form', () => {
       cy.url().should('contain', `articles/${body.id}`)
 
       cy.getByTestId('articleTitle').should('contain', body.title)
+
+      cy.getByTestId('articleRating').should('contain', body.rating)
     })
   })
 })
